@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+      <div class="container">
+      <div class="calculator">
+          <input type="text" placeholder="0" id="opscreen">
+          <button onclick="Clear()">Cl</button>
+          <button onclick="del()">DEL</button>
+          <button onclick="display('%')">%</button>
+          <button onclick="diplay('/')">/</button>
+          <button onclick="display('7')">7</button>
+          <button onclick="display('8')">8</button>
+          <button onclick="display('9')">9</button>
+          <button onclick="display('*')">*</button>
+          <button onclick="display('4')">4</button>
+          <button onclick="display('5')">5</button>
+          <button onclick="diaplay('6')">6</button>
+          <button onclick="display('-')">-</button>
+          <button onclick="display('1')">1</button>
+          <button onclick="display('2')">2</button>
+          <button onclick="display('3')">3</button>
+          <button onclick="display('+')">+</button>
+          <button onclick="display('.')">.</button>
+          <button onclick="display('0')">0</button>
+          <button onclick="Calculate()" class="equal">=</button>
+      </div>
+      </div>
+      <style>
+          *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ecf0f3;
+    font-family: sans-serif;
+    outline:none;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.calculator{
+
+    background-color: #ecf0f3;
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 12px #ffffff,/*inset-inner the box & 5px hori 5px ver 12px blur*/
+                    5px 5px 12px rgba(0,0,0,.16);/*outer layer blur with black*/
+    display: grid ;
+    grid-template-columns: repeat(4,68px); /*in order to seperate with 4 in  one line*/                  
+}
+input{
+    grid-column: span 4;
+    height: 70px;
+    width: 260px;
+    background-color: #ecf0f3;
+    box-shadow: inset -5px -5px 12px #ffffff,/*inside box right side bottom,inside box top left*/
+                inset 5px 5px 12px rgba(0,0,0,.16);
+    border: none;
+    border-radius: 30px;            
+    color: rgba(70,70,70);
+    font-size: 50px;
+    text-align: end;
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+button{
+    height: 48px;
+    width: 48px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #ffffff,/*left bottom*/
+                  5px 5px 12px rgba(0,0,0,.16);/*right bottom*/
+    border: none;
+    border-radius: 50%;
+    margin: 8px;
+    font-size: 16px;
+}
+.equal{
+    width:115px;
+    border-radius: 40px;
+    background-color: #ecf0f3;
+    box-shadow: -5px -5px 12px #ffffff,/*left bottom*/
+                  5px 5px 12px rgba(0,0,0,.16);/*right bottom*/
+}
+      </style>
+      <script>
+          let outputscreen=document.getElementById("opscreen");
+          
+          function display(num){
+              outputscreen.value  +=num;//this user enter number add with 0 it will display//
+
+          }
+          function Calculate(){
+              try{
+                  outputscreen.value= eval(outputscreen.value);
+              }
+              catch(err){
+                  alert("Syntax Error");
+              }
+            }
+        function Clear(){
+            outputscreen.value="";
+        }
+        function del(){
+            outputscreen.value=outputscreen.value.slice(0,-1);//one delete in back orber
+        }
+      </script>
+
+      
+</body>
+</html>
